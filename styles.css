@@ -163,13 +163,15 @@ h1 {
   display: grid;
   grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr);
   gap: 14px;
-  min-height: min(64vh, 560px);
+  height: calc(100dvh - 8.75rem);
+  max-height: 36rem;
 }
 
 .catalogue:has(.collection[hidden]),
 .catalogue:has(.featured[hidden]) {
   grid-template-columns: minmax(0, 1fr);
-  min-height: 0;
+  height: auto;
+  max-height: none;
 }
 
 .featured,
@@ -278,6 +280,13 @@ a.game-frame:focus-visible .game-art {
   padding: 12px 14px 14px;
 }
 
+.game-grid .eyebrow {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .game-copy h2 {
   margin: 4px 0 6px;
   font-family: var(--serif);
@@ -383,7 +392,8 @@ footer {
 
   .catalogue {
     grid-template-columns: minmax(0, 1fr);
-    min-height: 0;
+    height: auto;
+    max-height: none;
   }
 
   .game-card.is-featured {
@@ -421,7 +431,7 @@ footer {
 
   .game-card.is-featured .game-frame {
     grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: 180px auto;
+    grid-template-rows: 140px auto;
   }
 
   .game-grid {
@@ -455,7 +465,11 @@ footer {
   }
 
   .game-card.is-featured .game-frame {
-    grid-template-rows: 150px auto;
+    grid-template-rows: 108px auto;
+  }
+
+  .game-card.is-featured .description {
+    display: none;
   }
 
   .game-copy {

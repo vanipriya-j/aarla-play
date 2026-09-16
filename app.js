@@ -69,6 +69,9 @@ function fillCard(game, index, featured) {
   if (featured) {
     image.loading = 'eager';
     image.fetchPriority = 'high';
+  } else if (index < 5) {
+    image.loading = 'eager';
+    image.fetchPriority = 'auto';
   } else {
     image.loading = 'lazy';
     image.fetchPriority = 'low';

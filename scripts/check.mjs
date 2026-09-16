@@ -232,6 +232,7 @@ check('client keeps coming-soon cards from navigating', () => {
   assert.match(source, /status === 'live'/);
   assert.match(source, /removeAttribute\('href'\)/);
   assert.match(source, /loading = 'lazy'/);
+  assert.match(source, /loading = 'eager'/);
   assert.match(source, /The collection is being prepared/);
   assert.match(source, /game shelf could not be loaded/);
   assert.match(source, /id === 'kelvi'/);
