@@ -158,7 +158,7 @@ To take a game live, keep the same object, set `"status": "live"`, and point `hr
 ## How the page behaves
 
 - The browser fetches `/api/games` and renders the catalogue. `GAMES_JSON` stays server-side; the endpoint returns only `{ "games": [...] }`.
-- Kelvi is the large featured plate. Other visible games appear as cards in a responsive grid: two columns on wide screens, one column below 860px.
+- Kelvi is featured on the left of a shop-window grid so every visible game can sit in the first fold on a desktop or laptop screen. Collection cards sit in a compact 2×2 beside it. Below 1100px the shelf stacks; below 860px Kelvi stays a short banner and the other games remain a two-column grid.
 - Live cards are links to the complete `href`. Coming-soon cards are visibly inactive and are not links.
 - An empty `games` array shows a quiet empty state. Malformed JSON and other API failures show an error state. Hitting `/api/games` directly returns the useful server error text.
 

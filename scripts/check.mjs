@@ -243,7 +243,7 @@ check('styles cover mobile, reduced motion, and 16px body copy', () => {
   assert.match(css, /prefers-reduced-motion/);
   assert.match(css, /font-size: 16px/);
   assert.match(css, /overflow-x: clip/);
-  assert.match(css, /aspect-ratio: 1280 \/ 853/);
+  assert.match(css, /aspect-ratio: 16 \/ 10/);
 });
 
 function listen(server) {

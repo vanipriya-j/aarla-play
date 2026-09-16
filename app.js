@@ -63,8 +63,8 @@ function fillCard(game, index, featured) {
   image.height = 853;
   image.decoding = 'async';
   image.sizes = featured
-    ? '(max-width: 860px) 100vw, min(860px, 62vw)'
-    : '(max-width: 860px) 100vw, min(680px, 46vw)';
+    ? '(max-width: 860px) 100vw, (max-width: 1100px) 58vw, 42vw'
+    : '(max-width: 860px) 50vw, (max-width: 1100px) 46vw, 24vw';
 
   if (featured) {
     image.loading = 'eager';

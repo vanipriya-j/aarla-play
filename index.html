@@ -23,18 +23,16 @@
     <main id="content">
       <section class="intro">
         <p class="kicker">Pick your game</p>
-        <h1>How well do you<br>know your world?</h1>
+        <h1>How well do you know your world?</h1>
         <p class="intro-copy">Play solo. Challenge family. Earn highly specific bragging rights.</p>
       </section>
       <div id="catalogue-status" class="notice" role="status" aria-live="polite">Bringing out the game boards…</div>
-      <section id="featured" class="featured" aria-label="Featured game" hidden></section>
-      <section id="collection" class="collection" aria-label="Aarla games" hidden>
-        <div class="collection-head">
-          <p class="kicker">The collection</p>
-          <p>Independently hosted games, gathered here like prints in a shop window.</p>
-        </div>
-        <div id="games" class="game-grid"></div>
-      </section>
+      <div class="catalogue">
+        <section id="featured" class="featured" aria-label="Featured game" hidden></section>
+        <section id="collection" class="collection" aria-label="Aarla games" hidden>
+          <div id="games" class="game-grid"></div>
+        </section>
+      </div>
     </main>
     <template id="game-card-template">
       <article class="game-card">
