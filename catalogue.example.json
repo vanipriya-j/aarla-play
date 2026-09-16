@@ -1,0 +1,74 @@
+{
+  "games": [
+    {
+      "id": "kelvi",
+      "title": "Kelvi",
+      "category": "Quick-fire culture quiz",
+      "description": "A question drops. Answer fast. Protect the streak.",
+      "image": "/assets/kelvi.webp",
+      "imageAlt": "A visual spread of South Indian cultural clues: a veena, filter coffee, jasmine, a temple gopuram, kolam, and an auto rickshaw.",
+      "href": "https://kelvi.play.aarla.in",
+      "status": "live",
+      "statusLabel": "Now playing",
+      "cta": "Enter game",
+      "accent": "#c95235",
+      "visible": true
+    },
+    {
+      "id": "kolam-kraze",
+      "title": "Kolam Kraze",
+      "category": "Pattern · Memory · Speed",
+      "description": "Read the dots. Complete the pattern. Do not blink.",
+      "image": "/assets/kolam-kraze.webp",
+      "imageAlt": "A hand drawing a white kolam of looping lines and dots on a textured floor, with jasmine, rice flour, and turmeric nearby.",
+      "href": "https://kolam.play.aarla.in",
+      "status": "soon",
+      "statusLabel": "Coming soon",
+      "cta": "On view soon",
+      "accent": "#355c63",
+      "visible": true
+    },
+    {
+      "id": "sabha-canteen",
+      "title": "Sabha Canteen",
+      "category": "Coffee · Hierarchy · Gossip",
+      "description": "Know the menu, read the room, survive the season.",
+      "image": "/assets/sabha-canteen.webp",
+      "imageAlt": "Filter coffee, banana-leaf tiffin, and a concert programme on a green marble sabha canteen table.",
+      "href": "https://canteen.play.aarla.in",
+      "status": "soon",
+      "statusLabel": "Coming soon",
+      "cta": "On view soon",
+      "accent": "#ad4d32",
+      "visible": true
+    },
+    {
+      "id": "pallanguzhi",
+      "title": "Pallanguzhi",
+      "category": "Counting · Strategy · Memory",
+      "description": "The old counting game, sharpened for a new round.",
+      "image": "/assets/pallanguzhi.webp",
+      "imageAlt": "A carved wooden pallanguzhi board on sunlit stone, with cowrie shells and tamarind seeds in its pits.",
+      "href": "https://pallanguzhi.play.aarla.in",
+      "status": "soon",
+      "statusLabel": "Coming soon",
+      "cta": "On view soon",
+      "accent": "#8b4c2f",
+      "visible": true
+    },
+    {
+      "id": "aadu-puli-aattam",
+      "title": "Aadu Puli Aattam",
+      "category": "Goats · Tigers · Tactics",
+      "description": "One side has numbers. The other has teeth.",
+      "image": "/assets/aadu-puli-aattam.webp",
+      "imageAlt": "Brass tigers and ivory goats arranged on a triangular Aadu Puli Aattam board over deep blue cloth.",
+      "href": "https://aadupuli.play.aarla.in",
+      "status": "soon",
+      "statusLabel": "Coming soon",
+      "cta": "On view soon",
+      "accent": "#b22f2b",
+      "visible": true
+    }
+  ]
+}

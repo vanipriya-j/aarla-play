@@ -4,6 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vercel dev"
+    "dev": "node scripts/dev.mjs",
+    "check": "node scripts/check.mjs",
+    "vercel": "vercel dev"
   }
 }

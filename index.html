@@ -1,5 +1,60 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f4eee3"><meta name="description" content="Aarla Play — cultural games, remade for now."><title>Aarla Play</title><link rel="stylesheet" href="/styles.css"></head><body>
-<header class="topbar"><a class="wordmark" href="/">AARLA <span>PLAY</span></a><p>Cultural games, remade for now.</p><div class="guest"><i></i> Guest <strong id="guest-number">760</strong></div></header>
-<main><section class="intro"><p class="kicker">Pick your game</p><h1>How well do you<br>know your world?</h1><p class="intro-copy">Play solo. Challenge family. Earn highly specific bragging rights.</p></section><section id="games" class="game-grid" aria-label="Aarla games" aria-live="polite"><div class="loading">Bringing out the game boards…</div></section></main>
-<template id="game-card-template"><article class="game-card"><a class="game-link"><div class="art-wrap"><img class="game-art" alt=""><span class="status"></span><span class="number"></span></div><div class="game-copy"><p class="eyebrow"></p><h2></h2><p class="description"></p><span class="action"></span></div></a></article></template>
-<footer><span>Aarla Play</span><span>Made in Chennai · Played everywhere</span></footer><script src="/app.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4eee3">
+    <meta name="description" content="Aarla Play — cultural games, remade for now.">
+    <title>Aarla Play</title>
+    <link rel="preload" as="image" href="/assets/kelvi.webp" fetchpriority="high">
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#content">Skip to games</a>
+    <header class="topbar">
+      <a class="wordmark" href="/">AARLA <span>PLAY</span></a>
+      <p>Cultural games, remade for now.</p>
+      <div class="guest">
+        <i aria-hidden="true"></i>
+        <span>Guest</span>
+        <strong id="guest-number">—</strong>
+      </div>
+    </header>
+    <main id="content">
+      <section class="intro">
+        <p class="kicker">Pick your game</p>
+        <h1>How well do you know your world?</h1>
+        <p class="intro-copy">Play solo. Challenge family. Earn highly specific bragging rights.</p>
+      </section>
+      <div id="catalogue-status" class="notice" role="status" aria-live="polite">Bringing out the game boards…</div>
+      <div class="catalogue">
+        <section id="featured" class="featured" aria-label="Featured game" hidden></section>
+        <section id="collection" class="collection" aria-label="Aarla games" hidden>
+          <div id="games" class="game-grid"></div>
+        </section>
+      </div>
+    </main>
+    <template id="game-card-template">
+      <article class="game-card">
+        <div class="game-frame">
+          <div class="art-wrap">
+            <img class="game-art" alt="" width="1280" height="853">
+            <span class="status"></span>
+            <span class="number" aria-hidden="true"></span>
+          </div>
+          <div class="game-copy">
+            <p class="eyebrow"></p>
+            <h2></h2>
+            <p class="description"></p>
+            <span class="action"></span>
+          </div>
+        </div>
+      </article>
+    </template>
+    <footer>
+      <span>Aarla Play</span>
+      <span>Made in Chennai · Played everywhere</span>
+    </footer>
+    <script src="/app.js"></script>
+  </body>
+</html>
