@@ -98,6 +98,7 @@ a {
   justify-self: end;
   display: inline-flex;
   align-items: center;
+  gap: 8px;
   min-height: 44px;
   padding: 0 2px;
   color: var(--muted);
@@ -112,7 +113,6 @@ a {
   display: inline-block;
   width: 6px;
   height: 6px;
-  margin-right: 8px;
   border-radius: 50%;
   background: var(--accent);
 }
