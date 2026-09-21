@@ -64,6 +64,7 @@ Paste this exact object into the Vercel environment variable named `GAMES_JSON` 
       "id": "kelvi",
       "title": "Kelvi",
       "category": "Quick-fire culture quiz",
+      "playMode": "Solo",
       "description": "A question drops. Answer fast. Protect the streak.",
       "image": "/assets/kelvi.webp",
       "imageAlt": "A visual spread of South Indian cultural clues: a veena, filter coffee, jasmine, a temple gopuram, kolam, and an auto rickshaw.",
@@ -78,6 +79,7 @@ Paste this exact object into the Vercel environment variable named `GAMES_JSON` 
       "id": "kolam-kraze",
       "title": "Kolam Kraze",
       "category": "Pattern · Memory · Speed",
+      "playMode": "Solo",
       "description": "Read the dots. Complete the pattern. Do not blink.",
       "image": "/assets/kolam-kraze.webp",
       "imageAlt": "A hand drawing a white kolam of looping lines and dots on a textured floor, with jasmine, rice flour, and turmeric nearby.",
@@ -92,6 +94,7 @@ Paste this exact object into the Vercel environment variable named `GAMES_JSON` 
       "id": "sabha-canteen",
       "title": "Sabha Canteen",
       "category": "Coffee · Hierarchy · Gossip",
+      "playMode": "Solo",
       "description": "Know the menu, read the room, survive the season.",
       "image": "/assets/sabha-canteen.webp",
       "imageAlt": "Filter coffee, banana-leaf tiffin, and a concert programme on a green marble sabha canteen table.",
@@ -106,6 +109,7 @@ Paste this exact object into the Vercel environment variable named `GAMES_JSON` 
       "id": "pallanguzhi",
       "title": "Pallanguzhi",
       "category": "Counting · Strategy · Memory",
+      "playMode": "Two player",
       "description": "The old counting game, sharpened for a new round.",
       "image": "/assets/pallanguzhi.webp",
       "imageAlt": "A carved wooden pallanguzhi board on sunlit stone, with cowrie shells and tamarind seeds in its pits.",
@@ -120,6 +124,7 @@ Paste this exact object into the Vercel environment variable named `GAMES_JSON` 
       "id": "aadu-puli-aattam",
       "title": "Aadu Puli Aattam",
       "category": "Goats · Tigers · Tactics",
+      "playMode": "Two player",
       "description": "One side has numbers. The other has teeth.",
       "image": "/assets/aadu-puli-aattam.webp",
       "imageAlt": "Brass tigers and ivory goats arranged on a triangular Aadu Puli Aattam board over deep blue cloth.",
@@ -161,8 +166,8 @@ Paste this exact object into the Vercel environment variable named `GAMES_JSON` 
       "visible": true
     },
     {
-      "id": "poo-kattuvom",
-      "title": "Poo Kattuvom",
+      "id": "maalai-rush",
+      "title": "Maalai Rush",
       "category": "Pattern · Speed · Flowers",
       "playMode": "Solo",
       "description": "Pick, thread and knot flowers before the orders pile up.",
@@ -205,7 +210,7 @@ If `GAMES_JSON` is already set in Vercel, it **overrides** those defaults. Add t
 | `id` | yes | Unique string. Kelvi (`kelvi`) is the featured game when present. |
 | `title` | yes | Display title. |
 | `category` | no | Small eyebrow above the title. |
-| `playMode` | no | Secondary label such as `Solo` or `Facilitated group play`. |
+| `playMode` | no | Secondary label such as `Solo`, `Two player`, or `Facilitated group play`. |
 | `description` | no | Short catalogue copy. |
 | `image` | yes | Path or URL. Bundled art lives in `/assets/*.webp`. |
 | `imageAlt` | no | Accessible alt text. Defaults to `{title} game artwork`. |
@@ -221,7 +226,7 @@ To take a game live, keep the same object, set `"status": "live"`, and point `hr
 ## How the page behaves
 
 - The browser fetches `/api/games` and renders the catalogue. `GAMES_JSON` stays server-side; the endpoint returns only `{ "games": [...] }`.
-- Kelvi is featured on the left of a shop-window grid. The original four collection cards sit in a compact 2×2 beside it. Any further games, including Aarla Sabha, Mouna Mozhi, Poo Kattuvom and Kattam Kattam, appear in a second row: four across on wide screens, two on tablets, and one on mobile.
+- Kelvi is featured on the left of a shop-window grid. The original four collection cards sit in a compact 2×2 beside it. Any further games, including Aarla Sabha, Mouna Mozhi, Maalai Rush and Kattam Kattam, appear in a second row: four across on wide screens, two on tablets, and one on mobile.
 - Live cards are links to the complete `href`. Coming-soon cards are visibly inactive and are not links.
 - An empty `games` array shows a quiet empty state. Malformed JSON and other API failures show an error state. Hitting `/api/games` directly returns the useful server error text.
 
