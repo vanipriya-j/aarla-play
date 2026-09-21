@@ -88,7 +88,7 @@ check('second-row games follow the existing catalogue in order', () => {
   assert.deepEqual(ids.slice(5), [
     'aarla-sabha',
     'mouna-mozhi',
-    'poo-kattuvom',
+    'maalai-rush',
     'kattam-kattam'
   ]);
   for (const game of DEFAULT_CATALOGUE.games.slice(5)) {
@@ -108,7 +108,7 @@ check('every default game includes a playMode label', () => {
     'aadu-puli-aattam': 'Two player',
     'aarla-sabha': 'Facilitated group play',
     'mouna-mozhi': 'Facilitated group play',
-    'poo-kattuvom': 'Solo',
+    'maalai-rush': 'Solo',
     'kattam-kattam': 'Solo'
   });
 });

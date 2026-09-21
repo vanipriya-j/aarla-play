@@ -166,8 +166,8 @@ Paste this exact object into the Vercel environment variable named `GAMES_JSON` 
       "visible": true
     },
     {
-      "id": "poo-kattuvom",
-      "title": "Poo Kattuvom",
+      "id": "maalai-rush",
+      "title": "Maalai Rush",
       "category": "Pattern · Speed · Flowers",
       "playMode": "Solo",
       "description": "Pick, thread and knot flowers before the orders pile up.",
@@ -226,7 +226,7 @@ To take a game live, keep the same object, set `"status": "live"`, and point `hr
 ## How the page behaves
 
 - The browser fetches `/api/games` and renders the catalogue. `GAMES_JSON` stays server-side; the endpoint returns only `{ "games": [...] }`.
-- Kelvi is featured on the left of a shop-window grid. The original four collection cards sit in a compact 2×2 beside it. Any further games, including Aarla Sabha, Mouna Mozhi, Poo Kattuvom and Kattam Kattam, appear in a second row: four across on wide screens, two on tablets, and one on mobile.
+- Kelvi is featured on the left of a shop-window grid. The original four collection cards sit in a compact 2×2 beside it. Any further games, including Aarla Sabha, Mouna Mozhi, Maalai Rush and Kattam Kattam, appear in a second row: four across on wide screens, two on tablets, and one on mobile.
 - Live cards are links to the complete `href`. Coming-soon cards are visibly inactive and are not links.
 - An empty `games` array shows a quiet empty state. Malformed JSON and other API failures show an error state. Hitting `/api/games` directly returns the useful server error text.
 

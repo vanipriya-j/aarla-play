@@ -122,8 +122,8 @@ export const DEFAULT_CATALOGUE = {
       visible: true
     },
     {
-      id: 'poo-kattuvom',
-      title: 'Poo Kattuvom',
+      id: 'maalai-rush',
+      title: 'Maalai Rush',
       category: 'Pattern · Speed · Flowers',
       playMode: 'Solo',
       description: 'Pick, thread and knot flowers before the orders pile up.',
