@@ -2,6 +2,7 @@ const GAME_FIELDS = [
   'id',
   'title',
   'category',
+  'playMode',
   'description',
   'image',
   'imageAlt',
@@ -84,6 +85,66 @@ export const DEFAULT_CATALOGUE = {
       cta: 'On view soon',
       accent: '#b22f2b',
       visible: true
+    },
+    {
+      id: 'aarla-sabha',
+      title: 'Aarla Sabha',
+      category: 'Music · Performance · Friends',
+      playMode: 'Facilitated group play',
+      description: 'Sing, listen, guess and progress—from swaras to kritis.',
+      image: '/assets/aarla-sabha.webp',
+      imageAlt: 'Carnatic instruments arranged for an intimate musical gathering',
+      href: 'https://sabha.play.aarla.in',
+      status: 'soon',
+      statusLabel: 'Coming soon',
+      cta: 'Start a Sabha',
+      accent: '#9b3f2f',
+      visible: true
+    },
+    {
+      id: 'mouna-mozhi',
+      title: 'Mouna Mozhi',
+      category: 'Acting · Guessing · Friends',
+      playMode: 'Facilitated group play',
+      description: 'We give you the prompt. You act. Your friends guess.',
+      image: '/assets/mouna-mozhi.webp',
+      imageAlt: 'Expressive hand gestures and shadows during a game of charades',
+      href: 'https://mounamozhi.play.aarla.in',
+      status: 'soon',
+      statusLabel: 'Coming soon',
+      cta: 'Invite friends',
+      accent: '#b05a32',
+      visible: true
+    },
+    {
+      id: 'poo-kattuvom',
+      title: 'Poo Kattuvom',
+      category: 'Pattern · Speed · Flowers',
+      playMode: 'Solo',
+      description: 'Pick, thread and knot flowers before the orders pile up.',
+      image: '/assets/poo-kattuvom.webp',
+      imageAlt: 'Jasmine, roses and kanakambaram being threaded into a flower garland',
+      href: 'https://poo.play.aarla.in',
+      status: 'soon',
+      statusLabel: 'Coming soon',
+      cta: 'Start threading',
+      accent: '#a33c46',
+      visible: true
+    },
+    {
+      id: 'kattam-kattam',
+      title: 'Kattam Kattam',
+      category: 'Pattern · Space · Strategy',
+      playMode: 'Solo',
+      description: 'Rotate, place and complete the Athangudi floor without breaking the pattern.',
+      image: '/assets/kattam-kattam.webp',
+      imageAlt: 'Traditional Athangudi tiles being arranged into a patterned floor',
+      href: 'https://kattam.play.aarla.in',
+      status: 'soon',
+      statusLabel: 'Coming soon',
+      cta: 'Place the tiles',
+      accent: '#35604c',
+      visible: true
     }
   ]
 };
@@ -163,6 +224,7 @@ function validateGame(game, index, seenIds) {
   }
 
   optionalString(game, 'category', `Game "${game.id}"`);
+  optionalString(game, 'playMode', `Game "${game.id}"`);
   optionalString(game, 'description', `Game "${game.id}"`);
   optionalString(game, 'imageAlt', `Game "${game.id}"`);
   optionalString(game, 'statusLabel', `Game "${game.id}"`);

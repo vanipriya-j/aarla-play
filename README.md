@@ -129,12 +129,74 @@ Paste this exact object into the Vercel environment variable named `GAMES_JSON` 
       "cta": "On view soon",
       "accent": "#b22f2b",
       "visible": true
+    },
+    {
+      "id": "aarla-sabha",
+      "title": "Aarla Sabha",
+      "category": "Music · Performance · Friends",
+      "playMode": "Facilitated group play",
+      "description": "Sing, listen, guess and progress—from swaras to kritis.",
+      "image": "/assets/aarla-sabha.webp",
+      "imageAlt": "Carnatic instruments arranged for an intimate musical gathering",
+      "href": "https://sabha.play.aarla.in",
+      "status": "soon",
+      "statusLabel": "Coming soon",
+      "cta": "Start a Sabha",
+      "accent": "#9b3f2f",
+      "visible": true
+    },
+    {
+      "id": "mouna-mozhi",
+      "title": "Mouna Mozhi",
+      "category": "Acting · Guessing · Friends",
+      "playMode": "Facilitated group play",
+      "description": "We give you the prompt. You act. Your friends guess.",
+      "image": "/assets/mouna-mozhi.webp",
+      "imageAlt": "Expressive hand gestures and shadows during a game of charades",
+      "href": "https://mounamozhi.play.aarla.in",
+      "status": "soon",
+      "statusLabel": "Coming soon",
+      "cta": "Invite friends",
+      "accent": "#b05a32",
+      "visible": true
+    },
+    {
+      "id": "poo-kattuvom",
+      "title": "Poo Kattuvom",
+      "category": "Pattern · Speed · Flowers",
+      "playMode": "Solo",
+      "description": "Pick, thread and knot flowers before the orders pile up.",
+      "image": "/assets/poo-kattuvom.webp",
+      "imageAlt": "Jasmine, roses and kanakambaram being threaded into a flower garland",
+      "href": "https://poo.play.aarla.in",
+      "status": "soon",
+      "statusLabel": "Coming soon",
+      "cta": "Start threading",
+      "accent": "#a33c46",
+      "visible": true
+    },
+    {
+      "id": "kattam-kattam",
+      "title": "Kattam Kattam",
+      "category": "Pattern · Space · Strategy",
+      "playMode": "Solo",
+      "description": "Rotate, place and complete the Athangudi floor without breaking the pattern.",
+      "image": "/assets/kattam-kattam.webp",
+      "imageAlt": "Traditional Athangudi tiles being arranged into a patterned floor",
+      "href": "https://kattam.play.aarla.in",
+      "status": "soon",
+      "statusLabel": "Coming soon",
+      "cta": "Place the tiles",
+      "accent": "#35604c",
+      "visible": true
     }
   ]
 }
 ```
 
 If `GAMES_JSON` is absent, `/api/games` uses the same default catalogue from `api/games.js`.
+
+If `GAMES_JSON` is already set in Vercel, it **overrides** those defaults. Add the four new game objects to the existing environment value, or the second row will not appear on the deployed site. Copy the full object from `catalogue.example.json`.
 
 ### Field reference
 
@@ -143,6 +205,7 @@ If `GAMES_JSON` is absent, `/api/games` uses the same default catalogue from `ap
 | `id` | yes | Unique string. Kelvi (`kelvi`) is the featured game when present. |
 | `title` | yes | Display title. |
 | `category` | no | Small eyebrow above the title. |
+| `playMode` | no | Secondary label such as `Solo` or `Facilitated group play`. |
 | `description` | no | Short catalogue copy. |
 | `image` | yes | Path or URL. Bundled art lives in `/assets/*.webp`. |
 | `imageAlt` | no | Accessible alt text. Defaults to `{title} game artwork`. |
@@ -158,7 +221,7 @@ To take a game live, keep the same object, set `"status": "live"`, and point `hr
 ## How the page behaves
 
 - The browser fetches `/api/games` and renders the catalogue. `GAMES_JSON` stays server-side; the endpoint returns only `{ "games": [...] }`.
-- Kelvi is featured on the left of a shop-window grid so every visible game can sit in the first fold on a desktop or laptop screen. Collection cards sit in a compact 2×2 beside it. Below 1100px the shelf stacks; below 860px Kelvi stays a short banner and the other games remain a two-column grid.
+- Kelvi is featured on the left of a shop-window grid. The original four collection cards sit in a compact 2×2 beside it. Any further games, including Aarla Sabha, Mouna Mozhi, Poo Kattuvom and Kattam Kattam, appear in a second row: four across on wide screens, two on tablets, and one on mobile.
 - Live cards are links to the complete `href`. Coming-soon cards are visibly inactive and are not links.
 - An empty `games` array shows a quiet empty state. Malformed JSON and other API failures show an error state. Hitting `/api/games` directly returns the useful server error text.
 
