@@ -94,9 +94,23 @@ check('second-row games follow the existing catalogue in order', () => {
   for (const game of DEFAULT_CATALOGUE.games.slice(5)) {
     assert.equal(game.status, 'soon');
     assert.equal(game.statusLabel, 'Coming soon');
-    assert.equal(typeof game.playMode, 'string');
     assert.equal(isAbsoluteHttpUrl(game.href), true);
   }
+});
+
+check('every default game includes a playMode label', () => {
+  const modes = Object.fromEntries(DEFAULT_CATALOGUE.games.map((game) => [game.id, game.playMode]));
+  assert.deepEqual(modes, {
+    kelvi: 'Solo',
+    'kolam-kraze': 'Solo',
+    'sabha-canteen': 'Solo',
+    pallanguzhi: 'Two player',
+    'aadu-puli-aattam': 'Two player',
+    'aarla-sabha': 'Facilitated group play',
+    'mouna-mozhi': 'Facilitated group play',
+    'poo-kattuvom': 'Solo',
+    'kattam-kattam': 'Solo'
+  });
 });
 
 check('default catalogue matches catalogue.example.json', () => {
