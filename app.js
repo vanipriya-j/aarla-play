@@ -1,6 +1,8 @@
 const grid = document.querySelector('#games');
+const moreGrid = document.querySelector('#more-games');
 const featuredSlot = document.querySelector('#featured');
 const collection = document.querySelector('#collection');
+const moreSection = document.querySelector('#more');
 const statusSlot = document.querySelector('#catalogue-status');
 const template = document.querySelector('#game-card-template');
 const guestNumber = document.querySelector('#guest-number');
@@ -35,6 +37,8 @@ function showStatus(message, kind = 'status') {
   featuredSlot.replaceChildren();
   collection.hidden = true;
   grid.replaceChildren();
+  moreSection.hidden = true;
+  moreGrid.replaceChildren();
   statusSlot.hidden = false;
   statusSlot.className = kind === 'error' ? 'notice notice-error' : 'notice';
   statusSlot.setAttribute('role', kind === 'error' ? 'alert' : 'status');
@@ -64,7 +68,9 @@ function fillCard(game, index, featured) {
   image.decoding = 'async';
   image.sizes = featured
     ? '(max-width: 860px) 100vw, (max-width: 1100px) 58vw, 42vw'
-    : '(max-width: 860px) 50vw, (max-width: 1100px) 46vw, 24vw';
+    : index >= 5
+      ? '(max-width: 520px) 100vw, (max-width: 1100px) 46vw, 22vw'
+      : '(max-width: 860px) 50vw, (max-width: 1100px) 46vw, 24vw';
 
   if (featured) {
     image.loading = 'eager';
@@ -81,6 +87,7 @@ function fillCard(game, index, featured) {
     game.statusLabel || (live ? 'Play now' : 'Coming soon');
   fragment.querySelector('.number').textContent = String(index + 1).padStart(2, '0');
   fragment.querySelector('.eyebrow').textContent = game.category || 'Aarla Play';
+  fragment.querySelector('.play-mode').textContent = game.playMode || '';
   fragment.querySelector('h2').textContent = game.title;
   fragment.querySelector('.description').textContent = game.description || '';
   fragment.querySelector('.action').textContent =
@@ -112,16 +119,24 @@ function renderGames(games) {
 
   const featured = pickFeatured(items);
   const rest = items.filter((game) => game !== featured);
+  const firstRow = rest.slice(0, 4);
+  const secondRow = rest.slice(4);
 
   hideStatus();
   featuredSlot.hidden = false;
   featuredSlot.replaceChildren(fillCard(featured, 0, true));
 
   grid.replaceChildren();
-  rest.forEach((game, index) => {
+  firstRow.forEach((game, index) => {
     grid.append(fillCard(game, index + 1, false));
   });
-  collection.hidden = rest.length === 0;
+  collection.hidden = firstRow.length === 0;
+
+  moreGrid.replaceChildren();
+  secondRow.forEach((game, index) => {
+    moreGrid.append(fillCard(game, firstRow.length + index + 1, false));
+  });
+  moreSection.hidden = secondRow.length === 0;
 }
 
 function catalogueErrorMessage(status, payload) {

@@ -71,9 +71,32 @@ function invokeHandler(env = {}, req = { method: 'GET' }) {
 
 check('default catalogue is used when GAMES_JSON is absent', () => {
   const catalogue = resolveCatalogue({});
-  assert.equal(catalogue.games.length, 5);
+  assert.equal(catalogue.games.length, 9);
   assert.equal(catalogue.games[0].id, 'kelvi');
   assert.equal(catalogue.games[0].href, 'https://kelvi.play.aarla.in');
+});
+
+check('second-row games follow the existing catalogue in order', () => {
+  const ids = DEFAULT_CATALOGUE.games.map((game) => game.id);
+  assert.deepEqual(ids.slice(0, 5), [
+    'kelvi',
+    'kolam-kraze',
+    'sabha-canteen',
+    'pallanguzhi',
+    'aadu-puli-aattam'
+  ]);
+  assert.deepEqual(ids.slice(5), [
+    'aarla-sabha',
+    'mouna-mozhi',
+    'poo-kattuvom',
+    'kattam-kattam'
+  ]);
+  for (const game of DEFAULT_CATALOGUE.games.slice(5)) {
+    assert.equal(game.status, 'soon');
+    assert.equal(game.statusLabel, 'Coming soon');
+    assert.equal(typeof game.playMode, 'string');
+    assert.equal(isAbsoluteHttpUrl(game.href), true);
+  }
 });
 
 check('default catalogue matches catalogue.example.json', () => {
@@ -94,6 +117,14 @@ check('default assets exist', () => {
     assert.equal(game.image.startsWith('/assets/'), true);
     assert.equal(fs.existsSync(path.join(root, game.image)), true, `missing ${game.image}`);
   }
+});
+
+check('an older five-game GAMES_JSON still loads and hides the second row data', () => {
+  const catalogue = resolveCatalogue({
+    GAMES_JSON: JSON.stringify({ games: DEFAULT_CATALOGUE.games.slice(0, 5) })
+  });
+  assert.equal(catalogue.games.length, 5);
+  assert.equal(catalogue.games.some((game) => game.id === 'aarla-sabha'), false);
 });
 
 check('empty GAMES_JSON falls back to defaults', () => {
@@ -236,6 +267,7 @@ check('client keeps coming-soon cards from navigating', () => {
   assert.match(source, /The collection is being prepared/);
   assert.match(source, /game shelf could not be loaded/);
   assert.match(source, /id === 'kelvi'/);
+  assert.match(source, /secondRow/);
 });
 
 check('styles cover mobile, reduced motion, and 16px body copy', () => {
@@ -245,6 +277,8 @@ check('styles cover mobile, reduced motion, and 16px body copy', () => {
   assert.match(css, /font-size: 16px/);
   assert.match(css, /overflow-x: clip/);
   assert.match(css, /aspect-ratio: 16 \/ 10/);
+  assert.match(css, /\.more-grid/);
+  assert.match(css, /repeat\(4/);
 });
 
 function listen(server) {
